@@ -19,7 +19,6 @@ namespace Addition_task
         {
             get
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 for (int i = 0; i < 3; i++)
                 {
                     if (_rus[i] == index)
@@ -29,8 +28,7 @@ namespace Addition_task
                     else if (_ua[i] == index)
                         return _ua[i] + " - " + _eng[i] + " - " + _rus[i];
                 }
-                Console.ResetColor();
-                return string.Format("{0} - нет перевода для этого слова.", index);
+                return $"{index} - нет перевода для этого слова.";
             }
         }
 
@@ -39,7 +37,7 @@ namespace Addition_task
             get
             {
                 if (index >= 0 && index < 3)
-                    return _rus[index] + " - " + _eng[index] + " - " + _ua[index] + "\n" + _eng[index] + " - " + _rus[index] + " - " + _ua[index] + "\n" + _ua[index] + " - " + _eng[index] + " - " + _rus[index];
+                    return _rus[index] + " - " + _eng[index] + " - " + _ua[index];
                 else
                     return "Попытка обращения за пределы массива.";                
             }
