@@ -4,37 +4,32 @@ namespace Addition_task
 {
     class Dictionary
     {
-        string[] _rus = new string[5];
-        string[] _eng = new string[5];
-        string[] _ua = new string[5];
+        string[] _rus = new string[3];
+        string[] _eng = new string[3];
+        string[] _ua = new string[3];
 
-        public Dictionary()
+        public Dictionary(params string[] arrayLine)
         {
-            _rus[0] = "книга"; 
-            _rus[1] = "ручка"; 
-            _rus[2] = "солнце"; 
-            _rus[3] = "яблоко"; 
-            _rus[4] = "стол";
-            _eng[0] = "book";
-            _eng[1] = "pen";
-            _eng[2] = "sun";
-            _eng[3] = "apple";
-            _eng[4] = "table";
-            _ua[0] = _rus[0];
-            _ua[1] = _rus[1];
-            _ua[2] = "сонце";
-            _ua[3] = "яблуко";
-            _ua[4] = "стiл";
+            _rus = arrayLine[0..3];
+            _eng = arrayLine[3..6];
+            _ua = arrayLine[6..9];
         }
 
         public string this[string index]
         {
             get
             {
-                for (int i = 0; i < _rus.Length; i++)
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                for (int i = 0; i < 3; i++)
+                {
                     if (_rus[i] == index)
-                        return _rus[i] + " - " + _eng[i];
-
+                        return _rus[i] + " - " + _eng[i] + " - " + _ua[i];
+                    else if (_eng[i] == index)
+                        return _eng[i] + " - " + _rus[i] + " - " + _ua[i];
+                    else if (_ua[i] == index)
+                        return _ua[i] + " - " + _eng[i] + " - " + _rus[i];
+                }
+                Console.ResetColor();
                 return string.Format("{0} - нет перевода для этого слова.", index);
             }
         }
@@ -43,10 +38,10 @@ namespace Addition_task
         {
             get
             {
-                if (index >= 0 && index < _rus.Length)
-                    return _rus[index] + " - " + _eng[index];
+                if (index >= 0 && index < 3)
+                    return _rus[index] + " - " + _eng[index] + " - " + _ua[index] + "\n" + _eng[index] + " - " + _rus[index] + " - " + _ua[index] + "\n" + _ua[index] + " - " + _eng[index] + " - " + _rus[index];
                 else
-                    return "Попытка обращения за пределы массива.";
+                    return "Попытка обращения за пределы массива.";                
             }
         }
     }

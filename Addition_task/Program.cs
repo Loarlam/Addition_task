@@ -9,37 +9,26 @@ namespace Addition_task
     {
         static void Main(string[] args)
         {
-            //Строка ниже для возможности отображения украинских символов в консольке
+            //Строка ниже задает кодировку консоли
             Console.OutputEncoding = System.Text.Encoding.Default;
 
-            Dictionary dictionary = new Dictionary();
+            Dictionary dictionary = new Dictionary("яблоко", "стол", "солнце", "apple", "table", "sun", "яблуко", "стiл", "сонце");
 
-            Console.WriteLine(dictionary["книга"]);
-            Console.WriteLine(dictionary["дом"]);
-            Console.WriteLine(dictionary["ручка"]);
-            Console.WriteLine(dictionary["стол"]);
-            Console.WriteLine(dictionary["карандаш"]);
-            Console.WriteLine(dictionary["яблоко"]);
             Console.WriteLine(dictionary["солнце"]);
-            Console.WriteLine(dictionary["хата"]);
+            Console.WriteLine(dictionary["ручка"]);
+            Console.WriteLine(dictionary["book"]);
+            Console.WriteLine(dictionary["sun"]);
             Console.WriteLine(dictionary["стiл"]);
             Console.WriteLine(dictionary["олівець"]);
             Console.WriteLine(dictionary["яблуко"]);
-            Console.WriteLine(dictionary["сонце"]);
-            Console.WriteLine("book");
-            Console.WriteLine("pen");
-            Console.WriteLine("sun");
-            Console.WriteLine("apple");
-            Console.WriteLine("table");
 
-            Console.WriteLine(new string('-', 30));
+            Console.WriteLine("\n" + new string('-', 30)+"\n");
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine(dictionary[i]);
             }
 
-            // Delay.
             Console.ReadKey();
         }
     }
