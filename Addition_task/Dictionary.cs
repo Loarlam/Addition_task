@@ -4,9 +4,9 @@ namespace Addition_task
 {
     class Dictionary
     {
-        string[] _rus = new string[3];
-        string[] _eng = new string[3];
-        string[] _ua = new string[3];
+        string[] _rus;
+        string[] _eng;
+        string[] _ua;
 
         public Dictionary(params string[] arrayLine)
         {
